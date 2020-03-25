@@ -1,0 +1,68 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin-top:0px;
+  margin-bottom: 0px;
+  margin-left: 550px;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+  margin-top:50px;
+}
+
+mat-card-title,
+mat-card-content {
+ 
+  display: flex;
+  justify-content: center;
+  font-family: NimbusSanLConRegular;
+  color: black;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  font-family: NimbusSanLConRegular;
+}
+
+.btn  { 
+  background: darkred;
+  border: darkred;
+
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -160px;}
+
+.row-one {
+  width: 100%;
+  margin-top : 0px !important;
+  height: 100% !important;
+  margin-left : 0px !important;
+  margin-right: 0px;
+}
+
+
+.bg {
+  /* The image used */
+  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
+  /* Full height */
+  height: 1000px;
+  width : 1440px;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  margin-top: px;
+  margin-left : -580px !important;
+  margin-right: 0px;
+}

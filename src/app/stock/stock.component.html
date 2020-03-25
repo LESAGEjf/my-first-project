@@ -1,0 +1,39 @@
+<h1>{{ _title }}</h1>
+<p>Maximum Price : {{ datas['Max'] }} - 
+Minimum Price : {{ datas['Min'] }} - 
+Average Price : {{ datas['Mean'] }} - 
+Volatility : {{ datas['Standard Deviation'] }}</p>
+<div class="split left">
+    <mat-form-field>
+        <mat-label>Starting date </mat-label>
+        <input type="text" placeholder="Select a date" matInput [min]="minDate" [max]="maxDate"
+            [matDatepicker]="myDatepicker1" [(ngModel)]="Date1">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker1"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Ending date </mat-label>
+        <input type="text" placeholder="Select a date" matInput [min]="minDate" [max]="maxDate"
+            [matDatepicker]="myDatepicker2" [(ngModel)]="Date2">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker2></mat-datepicker>
+    </mat-form-field>
+    <button class="btn btn-success" (click)="onSendDate()">Choose</button>
+    <label style="margin-left:20px">
+        <button (click)="onBtnExport()">Export to CSV</button>
+    </label>
+    <ag-grid-angular style="height: 405px; width: 675px;" class="ag-theme-balham" [modules]="modules"
+        [columnDefs]="columnDefs" [rowData]="rowData" [pagination]="true" [paginationPageSize]="12"
+        [enableSorting]="true" [multiSortKey]="multiSortKey" [animateRows]="true" (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+
+</div>
+<div class="split right">
+    <div class="chart-container" style="height:800px; width:750px; background-color: #FFFFFF;">
+        <div *ngIf="chart">
+            <canvas id="canvas">{{ chart }}</canvas>
+        </div>
+
+    </div>
+</div>

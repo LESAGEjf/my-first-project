@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="bg">
+		<div class="row-one">
+			<div style="margin-top: 200px; margin-left: 500px; margin-right: 500px">
+				<mat-card>
+					<p *ngIf="connectionError">
+						Login or password are not valid
+					</p>
+					<mat-card-title>L O G I N </mat-card-title>
+					<mat-card-content>
+						<form>
+							<p>
+								<mat-form-field appearance="legacy">
+									<mat-label>Email</mat-label>
+									<input #_mail [formControl]="email" class="form-control" matInput
+										placeholder="example@mail.com" required>
+									<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+								</mat-form-field>
+							</p>
+							<p>
+								<mat-form-field appearance="legacy">
+									<mat-label>Password</mat-label>
+									<input #_password [formControl]="pass" class="form-control" matInput
+										[type]="hide ? 'password' : 'text'" placeholder="Password" required>
+									<button mat-icon-button matSuffix (click)="hide = !hide"
+										[attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+										<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+									</button>
+									<mat-error *ngIf="pass.invalid">{{getErrorMessage()}}</mat-error>
+								</mat-form-field>
+							</p>
+							<p *ngIf="error" class="error">
+								{{ error }}
+							</p>
+							<div class="button">
+								<button [disabled]="!(_password.value && _mail.value)"
+									(click)="login(_mail.value, _password.value)" mat-raised-button
+									class="btn btn-primary">
+									Login
+								</button>
+								<button class="btn btn-primary pull-right" routerLinkActive="active"
+									routerLink="../register" type="submit">Register</button>
+							</div>
+						</form>
+					</mat-card-content>
+				</mat-card>
+			</div>
+		</div>
+	</div>
+</div>

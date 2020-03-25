@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="bg">
+    <div class="row-one">
+      <div style="margin-top: 200px; margin-left: 500px; margin-right: 500px">
+        <mat-card>
+          <mat-card-title>R E G I S T E R</mat-card-title>
+          <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <p>
+                <mat-form-field class="form-group col-md-12" appearance="legacy">
+                  <mat-label>Name</mat-label>
+                  <input #_name [formControl]="name" class="form-control" matInput placeholder="Name" required>
+                  <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field class="form-group col-md-12" appearance="legacy">
+                  <mat-label>Email</mat-label>
+                  <input #_mail [formControl]="email" class="form-control" matInput placeholder="example@mail.com"
+                    required>
+                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field class="form-group col-md-12" appearance="legacy">
+                  <mat-label>Password</mat-label>
+                  <input #_password [formControl]="pass" class="form-control" matInput
+                    [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-error *ngIf="pass.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+              </p>
+              <div class="button">
+                <button [disabled]="!(_name.value && _password.value && _mail.value)"
+                  (click)="addUser(_name.value, _mail.value, _password.value)" mat-raised-button
+                  class="btn btn-primary">Register</button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

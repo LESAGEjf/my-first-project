@@ -1,0 +1,49 @@
+<div style="width:100%; font-family : NimbusSanLConRegular;">
+  <div class="bg">
+    <div class="form-inline" style="position: absolute; right: 20px;">
+      <br><br><br>
+      <input type="text" class="form-control" (keyup.enter)="onSearch()" [(ngModel)]="Search"
+        placeholder="News research">
+      <button class="btn btn-primary" (click)="onSearch()">S E A R C H </button>
+    </div>
+
+  </div>
+  <div style="margin-top: 20px; margin-left: 100px; margin-right: 100px">
+    <div *ngIf="articles !== null">
+      <div *ngFor="let item of articles.results">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>{{item.title}}</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-actions>
+            <a href="{{item.url}}" target="_blank"><button mat-button>READ IN NEW TAB</button></a>
+            <a href="{{item.url}}"><button mat-button>OPEN THE ARTICLE</button></a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <div *ngIf="recherches !== null">
+      <div *ngFor=" let sect of recherches.response.docs">
+        <div class="column">
+          <div class="card">
+            <div class="card-body">
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{sect.headline.main}}</mat-card-title>
+                </mat-card-header>
+
+                <mat-card-actions>
+                  <a href="{{sect.web_url}}" target="_blank"><button mat-button>READ IN NEW TAB</button></a>
+                  <a href="{{sect.web_url}}"><button mat-button>OPEN THE ARTICLE</button></a>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

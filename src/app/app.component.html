@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto">
+      <img src="../assets/logo.jpg" 
+        style="display: block; width: 100%; 
+        margin-left: 10px; 
+        margin-right: auto;
+        width:70px; 
+        height:40px; 
+        margin-top: auto;
+        margin-bottom: auto" >
+    </ul>
+  </div>
+  <div class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto">
+      <li routerLinkActive="active">
+        <a routerLink="">H O M E</a>
+      </li>
+      <li *ngIf="isLogged()" routerLinkActive="active">
+        <a routerLink="news">N E W S</a>
+      </li>
+      <li *ngIf="isLogged()" routerLinkActive="active">
+        <a routerLink="portfolio">P O R T F O L I O . C O N S T R U C T I O N </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="pricing">P R I C I N G</a>
+      </li>
+    </ul>
+  </div>
+  <div style="background-color: white; font-size :12px">
+    <form #formone="ngForm" (ngSubmit)="onSubmit(formone)">
+      <mat-form-field>
+        <input type="text" id="choix" name="choix"
+          placeholder="STOCK DATA" [matAutocomplete]="auto" [formControl]="myControl" matInput ngModel/>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <button type="submit" mat-button>S E A R C H</button>
+    </form>
+  </div>
+  <div class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto">
+      <li *ngIf="!isLogged()" routerLinkActive="active" >
+        <a routerLink="login">L O G I N</a>
+      </li>
+      <li *ngIf="isLogged()" routerLinkActive="active" >
+        <a (click)="logout()" 
+          type="submit">L O G . O U T</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+</div>

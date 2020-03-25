@@ -1,0 +1,50 @@
+.floated {
+  float:left;
+}
+
+div.b {
+  position: absolute;
+  right: 0;
+  top: 200px;
+  width: 400px;
+  height: 200px;
+  border: 3px solid black;
+}
+
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: yellow;
+  padding: 50px;
+  font-size: 20px;
+}
+
+h1{
+  color: rgb(102, 102, 102);
+  font-family: NimbusSanLConBold;
+  margin-left: 50px;
+  border: rgb(102, 102, 102);
+}
+
+.bg {
+  /* The image used */
+  background-image: url("https://www.porcelaine-ombre-et-lumiere.com/images/Image/Papier_Journall_A4copie_1378112573.jpg");
+  /* Full height */
+  height: 150px;
+  width : 1500px;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 198em;
+  margin-top: 0px;
+  margin-left : -160px !important;
+  margin-right: 0px;
+}
+.row {margin: 0 -160px;}
+
+.btn  { 
+  background: rgb(61, 56, 126);
+  border: rgb(61, 56, 126);
+
+}

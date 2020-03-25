@@ -1,0 +1,29 @@
+<div class="center">
+ <div style="font-family : NimbusSanLConRegular;">
+    <h5>Percentage of risk: {{ value ? value/100 : 0 }}</h5>
+    <mat-slider min="0" max="100" step="0.5" [(ngModel)]="value" [tickInterval]="20" [displayWith]="formatLabel"
+      thumbLabel (change)="onInputChange($event)">
+    </mat-slider>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header style="background-color: #eee">
+        <mat-panel-title>
+          Stock Options
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-selection-list #stock [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
+        <mat-list-option *ngFor="let stock of objectOptions" [value]="stock.shortName">
+          {{ stock.name }}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-expansion-panel>
+
+
+      <div class="chart-container" style="height:800px; width:750px; background-color: #FFFFFF;">
+        <div *ngFor="let title of titles; let index of index">
+          <h4>{{ title }}</h4>
+          <h5></h5>
+          <canvas id='{{ title }}'>{{ chart }}</canvas>
+        </div>
+      </div>
+</div>
+</div>
