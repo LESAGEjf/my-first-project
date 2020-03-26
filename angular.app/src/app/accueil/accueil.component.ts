@@ -6,7 +6,6 @@ type PaneType = 'left' | 'right';
 
 @Component({
   selector: 'app-accueil',
-  template: '<div [hidden]="hidden></div>',
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

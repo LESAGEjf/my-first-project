@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\angular.app",
+    "\\angular.app\\src",
+    "\\angular.app\\src\\app",
+    "\\angular.app\\src\\app\\accueil",
+    "\\angular.app\\src\\app\\news"
+  ],
+  "SelectedNode": "\\angular.app\\src\\app\\news\\news.component.ts",
+  "PreviewInSolutionExplorer": false
+}
